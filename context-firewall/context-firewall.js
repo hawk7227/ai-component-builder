@@ -22,11 +22,11 @@ const opaqueAsset = (value) => /^data:(?:image|audio|video|application)\//i.test
 function redactSecrets(value) {
   return String(value)
     .replace(/sk-[A-Za-z0-9_-]{12,}/g, '[REDACTED_API_KEY]')
-    .replace(/(OPENAI_API_KEY\s*=\s*)[^\s'\"]+/gi, '$1[REDACTED]')
-    .replace(/(API_KEY\s*=\s*)[^\s'\"]+/gi, '$1[REDACTED]')
-    .replace(/(SECRET\s*=\s*)[^\s'\"]+/gi, '$1[REDACTED]')
-    .replace(/(PASSWORD\s*=\s*)[^\s'\"]+/gi, '$1[REDACTED]')
-    .replace(/(Bearer\s+)[A-Za-z0-9._~+\/-]{12,}/gi, '$1[REDACTED]')
+    .replace(/(OPENAI_API_KEY\s*=\s*)[^\s'"]+/gi, '$1[REDACTED]')
+    .replace(/(API_KEY\s*=\s*)[^\s'"]+/gi, '$1[REDACTED]')
+    .replace(/(SECRET\s*=\s*)[^\s'"]+/gi, '$1[REDACTED]')
+    .replace(/(PASSWORD\s*=\s*)[^\s'"]+/gi, '$1[REDACTED]')
+    .replace(/(Bearer\s+)[A-Za-z0-9._~+/-]{12,}/gi, '$1[REDACTED]')
     .replace(/-----BEGIN [^-]+ PRIVATE KEY-----[\s\S]*?-----END [^-]+ PRIVATE KEY-----/g, '[REDACTED_PRIVATE_KEY]')
 }
 
